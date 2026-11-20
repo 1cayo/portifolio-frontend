@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import WeatherBadge from "@/components/WeatherBadge";
+import TimeBadge from "@/components/TimeBadge";
 
 const links = [
   { href: "/", label: "Home" },
@@ -33,7 +34,10 @@ export default function Header({ name }) {
               ))}
             </ul>
           </nav>
-          <WeatherBadge />
+          <div className="header-widgets">
+            <WeatherBadge />
+            <TimeBadge />
+          </div>
         </div>
       </div>
     </header>

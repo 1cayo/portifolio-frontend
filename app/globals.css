@@ -32,6 +32,7 @@ p + p { margin-top: .75rem; }
 .header { background: var(--surface); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 5; }
 .header-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem 1.5rem; padding-block: .9rem; }
 .header-nav-wrap { display: flex; align-items: center; flex-wrap: wrap; gap: .75rem; }
+.header-widgets { display: inline-flex; align-items: center; flex-wrap: wrap; gap: .4rem; }
 .brand { font-weight: 800; color: var(--ink); }
 .brand:hover { text-decoration: none; }
 .nav { display: flex; flex-wrap: wrap; gap: .25rem; list-style: none; padding: 0; }
@@ -69,6 +70,32 @@ p + p { margin-top: .75rem; }
 .weather-skeleton {
   display: inline-block;
   width: 70px;
+  height: 30px;
+  border-radius: 999px;
+  background: var(--line);
+  animation: weather-pulse 1.5s infinite ease-in-out;
+}
+
+/* Time Badge */
+.time-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  padding: .3rem .65rem;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.time-badge .time-icon {
+  font-size: .85rem;
+}
+.time-skeleton {
+  display: inline-block;
+  width: 52px;
   height: 30px;
   border-radius: 999px;
   background: var(--line);
