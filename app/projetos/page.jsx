@@ -13,11 +13,21 @@ export default async function Projetos() {
         <div className="grid">
           {projects.map((p) => (
             <article key={p.name} className="card">
-              <h3>{p.name}</h3>
+              <h3>
+                {p.url ? (
+                  <a href={p.url} target="_blank" rel="noopener noreferrer">
+                    {p.name}
+                  </a>
+                ) : (
+                  p.name
+                )}
+              </h3>
               <p>{p.description}</p>
-              <ul className="chips">
-                {p.stack.map((s) => <li key={s}>{s}</li>)}
-              </ul>
+              {p.stack && p.stack.length > 0 && (
+                <ul className="chips">
+                  {p.stack.map((s) => <li key={s}>{s}</li>)}
+                </ul>
+              )}
             </article>
           ))}
         </div>
