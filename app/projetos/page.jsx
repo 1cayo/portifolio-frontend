@@ -1,10 +1,8 @@
-import { getRepos } from "@/lib/github";
-import { profile, projects } from "@/lib/data";
+import { projects } from "@/lib/data";
 
 export const metadata = { title: "Projetos Desenvolvidos" };
 
-export default async function Projetos() {
-  const repos = await getRepos(profile.github);
+export default function Projetos() {
 
   return (
     <>
@@ -31,28 +29,6 @@ export default async function Projetos() {
             </article>
           ))}
         </div>
-      </section>
-
-      <section>
-        <h2>Repositórios recentes no GitHub</h2>
-        {repos.length === 0 ? (
-          <p className="muted">
-            Não foi possível carregar os repositórios agora. Tente novamente mais tarde.
-          </p>
-        ) : (
-          <div className="grid">
-            {repos.map((r) => (
-              <article key={r.id} className="card">
-                <h3><a href={r.url}>{r.name}</a></h3>
-                <p>{r.description}</p>
-                <ul className="chips">
-                  {r.language && <li>{r.language}</li>}
-                  <li>★ {r.stars}</li>
-                </ul>
-              </article>
-            ))}
-          </div>
-        )}
       </section>
     </>
   );
