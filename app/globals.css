@@ -33,8 +33,19 @@ p + p { margin-top: .75rem; }
 .header-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem 1.5rem; padding-block: .9rem; }
 .header-nav-wrap { display: flex; align-items: center; flex-wrap: wrap; gap: .75rem; }
 .header-widgets { display: inline-flex; align-items: center; flex-wrap: wrap; gap: .4rem; }
-.brand { font-weight: 800; color: var(--ink); }
+.brand { display: inline-flex; align-items: center; border-radius: 50%; }
 .brand:hover { text-decoration: none; }
+.brand-avatar {
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--line);
+  transition: transform .2s ease, border-color .2s ease;
+  display: block;
+}
+.brand:hover .brand-avatar {
+  transform: scale(1.05);
+  border-color: var(--accent);
+}
 .nav { display: flex; flex-wrap: wrap; gap: .25rem; list-style: none; padding: 0; }
 .nav a { display: block; padding: .35rem .8rem; border-radius: 999px; color: var(--muted); font-weight: 600; font-size: .95rem; }
 .nav a:hover { background: var(--accent-soft); text-decoration: none; }
