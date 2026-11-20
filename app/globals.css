@@ -31,12 +31,53 @@ p + p { margin-top: .75rem; }
 /* Header */
 .header { background: var(--surface); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 5; }
 .header-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem 1.5rem; padding-block: .9rem; }
+.header-nav-wrap { display: flex; align-items: center; flex-wrap: wrap; gap: .75rem; }
 .brand { font-weight: 800; color: var(--ink); }
 .brand:hover { text-decoration: none; }
 .nav { display: flex; flex-wrap: wrap; gap: .25rem; list-style: none; padding: 0; }
 .nav a { display: block; padding: .35rem .8rem; border-radius: 999px; color: var(--muted); font-weight: 600; font-size: .95rem; }
 .nav a:hover { background: var(--accent-soft); text-decoration: none; }
 .nav a[aria-current="page"] { background: var(--accent-soft); color: var(--accent); }
+
+/* Weather Badge */
+.weather-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  padding: .3rem .7rem;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.weather-badge .weather-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+  object-fit: contain;
+}
+.weather-badge .weather-city {
+  font-size: .8rem;
+  font-weight: 500;
+  border-left: 1px solid var(--line);
+  padding-left: .35rem;
+  margin-left: .15rem;
+}
+.weather-skeleton {
+  display: inline-block;
+  width: 70px;
+  height: 30px;
+  border-radius: 999px;
+  background: var(--line);
+  animation: weather-pulse 1.5s infinite ease-in-out;
+}
+@keyframes weather-pulse {
+  0%, 100% { opacity: .6; }
+  50% { opacity: .25; }
+}
 
 /* Hero */
 .hero { padding-block: 2rem 1rem; }

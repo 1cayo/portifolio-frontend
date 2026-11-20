@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import WeatherBadge from "@/components/WeatherBadge";
 
 const links = [
   { href: "/", label: "Home" },
@@ -17,20 +18,23 @@ export default function Header({ name }) {
     <header className="header">
       <div className="container header-inner">
         <Link href="/" className="brand">{name}</Link>
-        <nav aria-label="Principal">
-          <ul className="nav">
-            {links.map((l) => (
-              <li key={l.href}>
-                <Link
-                  href={l.href}
-                  aria-current={pathname === l.href ? "page" : undefined}
-                >
-                  {l.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <div className="header-nav-wrap">
+          <nav aria-label="Principal">
+            <ul className="nav">
+              {links.map((l) => (
+                <li key={l.href}>
+                  <Link
+                    href={l.href}
+                    aria-current={pathname === l.href ? "page" : undefined}
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <WeatherBadge />
+        </div>
       </div>
     </header>
   );
